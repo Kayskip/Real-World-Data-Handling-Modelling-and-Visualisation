@@ -1,0 +1,9 @@
+<OGRVRTDataSource>
+  <OGRVRTLayer name="fishing-effort-number-of-trawl-tows-by-year-19902014">
+    <SrcDataSource relativeToVRT="1">fishing-effort-number-of-trawl-tows-by-year-19902014.csv</SrcDataSource>
+    <FeatureCount>75</FeatureCount>
+    <Field name="Fishing_year" src="Fishing_year" type="String" />
+    <Field name="Reporting_class" src="Reporting_class" type="String" />
+    <Field name="Number_tows" src="Number_tows" type="String" />
+  </OGRVRTLayer>
+</OGRVRTDataSource>

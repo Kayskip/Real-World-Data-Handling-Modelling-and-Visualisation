@@ -1,0 +1,33 @@
+<OGRVRTDataSource>
+  <OGRVRTLayer name="type-2-marine-protected-areas-2016-report">
+    <SrcDataSource relativeToVRT="1">type-2-marine-protected-areas-2016-report.csv</SrcDataSource>
+    <FeatureCount>43</FeatureCount>
+    <GeometryField field="WKT" reportSrcColumn="FALSE">
+      <GeometryType>wkbPolygon</GeometryType>
+      <SRS>EPSG:3857</SRS>
+      <ExtentXMin>18542055.3278</ExtentXMin>
+      <ExtentYMin>-6950083.6322</ExtentYMin>
+      <ExtentXMax>19966832.266</ExtentXMax>
+      <ExtentYMax>-4220047.4518</ExtentYMax>
+    </GeometryField>
+    <Field name="IDENTIFIER" src="IDENTIFIER" type="String" width="10" />
+    <Field name="TYPE" src="TYPE" type="String" width="50" />
+    <Field name="NAME" src="NAME" type="String" width="150" />
+    <Field name="SHORT_NAME" src="SHORT_NAME" type="String" width="50" />
+    <Field name="LOCATION" src="LOCATION" type="String" width="50" />
+    <Field name="REFERENCE" src="REFERENCE" type="String" width="50" />
+    <Field name="AREA_KM2" src="AREA_KM2" type="Real" />
+    <Field name="WARNING" src="WARNING" type="String" width="3" />
+    <Field name="NOTES" src="NOTES" type="String" width="250" />
+    <Field name="RESTRICTION" src="RESTRICTION" type="String" width="250" />
+    <Field name="GAZ_DATE" src="GAZ_DATE" type="String" width="10" />
+    <Field name="IN_FORCE_DATE" src="IN_FORCE_DATE" type="String" width="10" />
+    <Field name="ORIG_LEGAL_INSTRUMENT" src="ORIG_LEGAL_INSTRUMENT" type="String" width="150" />
+    <Field name="LATEST_LEGAL_INSTRUMENT" src="LATEST_LEGAL_INSTRUMENT" type="String" width="150" />
+    <Field name="LEGAL_AREA" src="LEGAL_AREA" type="Real" />
+    <Field name="BIOGEOGRAPHIC_AREA" src="BIOGEOGRAPHIC_AREA" type="String" width="50" />
+    <Field name="AGENCY" src="AGENCY" type="String" width="50" />
+    <Field name="MPA_TYPE" src="MPA_TYPE" type="String" width="100" />
+    <Field name="SHAPE_Length" src="SHAPE_Length" type="Real" />
+  </OGRVRTLayer>
+</OGRVRTDataSource>
