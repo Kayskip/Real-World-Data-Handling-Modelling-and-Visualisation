@@ -250,7 +250,7 @@
 			},
 			"connections" : {
 			},
-			"coordinates" : "985,388"
+			"coordinates" : "977,369"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.GraphViewer",
