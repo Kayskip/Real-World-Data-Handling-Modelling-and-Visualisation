@@ -1,0 +1,13 @@
+<OGRVRTDataSource>
+  <OGRVRTLayer name="mean-annual-sea-surface-temperatures-19932013">
+    <SrcDataSource relativeToVRT="1">mean-annual-sea-surface-temperatures-19932013.csv</SrcDataSource>
+    <FeatureCount>84</FeatureCount>
+    <Field name="Area" src="Area" type="String" />
+    <Field name="year" src="year" type="String" />
+    <Field name="Maximum" src="Maximum" type="String" />
+    <Field name="Mean" src="Mean" type="String" />
+    <Field name="Minimum" src="Minimum" type="String" />
+    <Field name="Sample_Size" src="Sample_Size" type="String" />
+    <Field name="Standard_Deviation" src="Standard_Deviation" type="String" />
+  </OGRVRTLayer>
+</OGRVRTDataSource>

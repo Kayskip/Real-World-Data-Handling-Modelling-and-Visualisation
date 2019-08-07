@@ -1,0 +1,46 @@
+<OGRVRTDataSource>
+  <OGRVRTLayer name="predicted-capture-of-11-fish-species-19772015">
+    <SrcDataSource relativeToVRT="1">predicted-capture-of-11-fish-species-19772015.csv</SrcDataSource>
+    <FeatureCount>39</FeatureCount>
+    <Field name="Year" src="Year" type="String" />
+    <Field name="Brown_trout_probability_of_capture" src="Brown_trout_probability_of_capture" type="String" />
+    <Field name="Brown_trout_lower_Confidenceinterval" src="Brown_trout_lower_Confidenceinterval" type="String" />
+    <Field name="Brown_trout_upper_Confidenceinterval" src="Brown_trout_upper_Confidenceinterval" type="String" />
+    <Field name="Canterbury_galaxias_probability_of_capture" src="Canterbury_galaxias_probability_of_capture" type="String" />
+    <Field name="Canterbury_galaxias_lower_Confidenceinterval" src="Canterbury_galaxias_lower_Confidenceinterval" type="String" />
+    <Field name="Canterbury_galaxias_upper_Confidenceinterval" src="Canterbury_galaxias_upper_Confidenceinterval" type="String" />
+    <Field name="Common_bully_probability_of_capture" src="Common_bully_probability_of_capture" type="String" />
+    <Field name="Common_bully_lower_Confidenceinterval" src="Common_bully_lower_Confidenceinterval" type="String" />
+    <Field name="Common_bully_upper_Confidenceinterval" src="Common_bully_upper_Confidenceinterval" type="String" />
+    <Field name="Exotic_fish_probability_of_capture" src="Exotic_fish_probability_of_capture" type="String" />
+    <Field name="Exotic_fish_lower_Confidenceinterval" src="Exotic_fish_lower_Confidenceinterval" type="String" />
+    <Field name="Exotic_fish_upper_Confidenceinterval" src="Exotic_fish_upper_Confidenceinterval" type="String" />
+    <Field name="Koaro_probability_of_capture" src="Koaro_probability_of_capture" type="String" />
+    <Field name="Koaro_lower_Confidenceinterval" src="Koaro_lower_Confidenceinterval" type="String" />
+    <Field name="Koaro_upper_Confidenceinterval" src="Koaro_upper_Confidenceinterval" type="String" />
+    <Field name="Koura_probability_of_capture" src="Koura_probability_of_capture" type="String" />
+    <Field name="Koura_lower_Confidenceinterval" src="Koura_lower_Confidenceinterval" type="String" />
+    <Field name="Koura_upper_Confidenceinterval" src="Koura_upper_Confidenceinterval" type="String" />
+    <Field name="Longfin_eel_Shortfin_eel_probability_of_capture" src="Longfin_eel_Shortfin_eel_probability_of_capture" type="String" />
+    <Field name="Longfin_eel_Shortfin_eel_lower_Confidenceinterval" src="Longfin_eel_Shortfin_eel_lower_Confidenceinterval" type="String" />
+    <Field name="Longfin_eel_Shortfin_eel_upper_Confidenceinterval" src="Longfin_eel_Shortfin_eel_upper_Confidenceinterval" type="String" />
+    <Field name="Native_fish_probability_of_capture" src="Native_fish_probability_of_capture" type="String" />
+    <Field name="Native_fish_lower_Confidenceinterval" src="Native_fish_lower_Confidenceinterval" type="String" />
+    <Field name="Native_fish_upper_Confidenceinterval" src="Native_fish_upper_Confidenceinterval" type="String" />
+    <Field name="Rainbow_trout_probability_of_capture" src="Rainbow_trout_probability_of_capture" type="String" />
+    <Field name="Rainbow_trout_lower_Confidenceinterval" src="Rainbow_trout_lower_Confidenceinterval" type="String" />
+    <Field name="Rainbow_trout_upper_Confidenceinterval" src="Rainbow_trout_upper_Confidenceinterval" type="String" />
+    <Field name="Redfin_bully_probability_of_capture" src="Redfin_bully_probability_of_capture" type="String" />
+    <Field name="Redfin_bully_lower_Confidenceinterval" src="Redfin_bully_lower_Confidenceinterval" type="String" />
+    <Field name="Redfin_bully_upper_Confidenceinterval" src="Redfin_bully_upper_Confidenceinterval" type="String" />
+    <Field name="Shortfin_eel_probability_of_capture" src="Shortfin_eel_probability_of_capture" type="String" />
+    <Field name="Shortfin_eel_lower_Confidenceinterval" src="Shortfin_eel_lower_Confidenceinterval" type="String" />
+    <Field name="Shortfin_eel_upper_Confidenceinterval" src="Shortfin_eel_upper_Confidenceinterval" type="String" />
+    <Field name="Torrentfish_probability_of_capture" src="Torrentfish_probability_of_capture" type="String" />
+    <Field name="Torrentfish_lower_Confidenceinterval" src="Torrentfish_lower_Confidenceinterval" type="String" />
+    <Field name="Torrentfish_upper_Confidenceinterval" src="Torrentfish_upper_Confidenceinterval" type="String" />
+    <Field name="Upland_bully_probability_of_capture" src="Upland_bully_probability_of_capture" type="String" />
+    <Field name="Upland_bully_lower_Confidenceinterval" src="Upland_bully_lower_Confidenceinterval" type="String" />
+    <Field name="Upland_bully_upper_Confidenceinterval" src="Upland_bully_upper_Confidenceinterval" type="String" />
+  </OGRVRTLayer>
+</OGRVRTDataSource>

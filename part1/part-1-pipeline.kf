@@ -1,0 +1,229 @@
+{
+	"flow_name" : "tttt",
+	"steps" : [
+		{
+			"class" : "weka.knowledgeflow.steps.Loader",
+			"properties" : {
+				"loader" : {
+					"type" : "loader",
+					"class" : "weka.core.converters.CSVLoader",
+					"filePath" : "/home/karu/Documents/COMP309/Assignment 2/estimated-fish-and-invertebrate-bycatch-in-deep-water-fisher.csv",
+					"useRelativePath" : false,
+					"options" : "-format \"yyyy-MM-dd\\'T\\'HH:mm:ss\" -M ? -B 100 -E \"\\\",\\'\" -F ,"
+				},
+				"name" : "CSVLoader"
+			},
+			"connections" : {
+				"dataSet" : [
+					"ClassAssigner2",
+					"CrossValidationFoldMaker2"
+				]
+			},
+			"coordinates" : "106,128"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.CrossValidationFoldMaker",
+			"properties" : {
+				"name" : "CrossValidationFoldMaker",
+				"numFolds" : "10",
+				"preserveOrder" : false,
+				"seed" : "1"
+			},
+			"connections" : {
+				"trainingSet" : [
+					"MultilayerPerceptron",
+					"J48"
+				],
+				"testSet" : [
+					"MultilayerPerceptron",
+					"J48"
+				]
+			},
+			"coordinates" : "288,334"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.TextViewer",
+			"properties" : {
+				"name" : "TextViewer"
+			},
+			"connections" : {
+			},
+			"coordinates" : "656,202"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Clusterer",
+			"properties" : {
+				"clusterer" : {
+					"type" : "optionHandler",
+					"class" : "weka.clusterers.SimpleKMeans",
+					"options" : "-init 0 -max-candidates 100 -periodic-pruning 10000 -min-density 2.0 -t1 -1.25 -t2 -1.0 -N 2 -A \"weka.core.EuclideanDistance -R first-last\" -I 500 -num-slots 1 -S 10"
+				},
+				"loadClustererFileName" : "",
+				"name" : "SimpleKMeans"
+			},
+			"connections" : {
+				"batchClusterer" : [
+					"ClustererPerformanceEvaluator"
+				]
+			},
+			"coordinates" : "382,201"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.ClustererPerformanceEvaluator",
+			"properties" : {
+				"name" : "ClustererPerformanceEvaluator"
+			},
+			"connections" : {
+				"text" : [
+					"TextViewer"
+				]
+			},
+			"coordinates" : "498,202"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Clusterer",
+			"properties" : {
+				"clusterer" : {
+					"type" : "optionHandler",
+					"class" : "weka.clusterers.Cobweb",
+					"options" : "-A 1.0 -C 0.0028209479177387815 -S 42"
+				},
+				"loadClustererFileName" : "",
+				"name" : "Cobweb"
+			},
+			"connections" : {
+				"batchClusterer" : [
+					"ClustererPerformanceEvaluator2"
+				]
+			},
+			"coordinates" : "360,48"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.ClustererPerformanceEvaluator",
+			"properties" : {
+				"name" : "ClustererPerformanceEvaluator2"
+			},
+			"connections" : {
+				"text" : [
+					"TextViewer2"
+				]
+			},
+			"coordinates" : "501,48"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.TextViewer",
+			"properties" : {
+				"name" : "TextViewer2"
+			},
+			"connections" : {
+			},
+			"coordinates" : "648,48"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.TextViewer",
+			"properties" : {
+				"name" : "TextViewer3"
+			},
+			"connections" : {
+			},
+			"coordinates" : "651,334"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.DataVisualizer",
+			"properties" : {
+				"name" : "DataVisualizer",
+				"offscreenAdditionalOpts" : "",
+				"offscreenHeight" : "400",
+				"offscreenRendererName" : "Weka Chart Renderer",
+				"offscreenWidth" : "500",
+				"offscreenXAxis" : "",
+				"offscreenYAxis" : ""
+			},
+			"connections" : {
+			},
+			"coordinates" : "127,460"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.ClassAssigner",
+			"properties" : {
+				"classColumn" : "Fishery",
+				"name" : "ClassAssigner2"
+			},
+			"connections" : {
+				"dataSet" : [
+					"CrossValidationFoldMaker"
+				]
+			},
+			"coordinates" : "108,336"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Classifier",
+			"properties" : {
+				"classifier" : {
+					"type" : "optionHandler",
+					"class" : "weka.classifiers.functions.MultilayerPerceptron",
+					"options" : "-L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a"
+				},
+				"loadClassifierFileName" : "",
+				"name" : "MultilayerPerceptron",
+				"resetIncrementalClassifier" : false,
+				"updateIncrementalClassifier" : true
+			},
+			"connections" : {
+				"text" : [
+					"TextViewer3"
+				]
+			},
+			"coordinates" : "450,334"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.CrossValidationFoldMaker",
+			"properties" : {
+				"name" : "CrossValidationFoldMaker2",
+				"numFolds" : "10",
+				"preserveOrder" : false,
+				"seed" : "1"
+			},
+			"connections" : {
+				"trainingSet" : [
+					"Cobweb",
+					"SimpleKMeans"
+				],
+				"testSet" : [
+					"Cobweb",
+					"SimpleKMeans"
+				]
+			},
+			"coordinates" : "258,128"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Classifier",
+			"properties" : {
+				"classifier" : {
+					"type" : "optionHandler",
+					"class" : "weka.classifiers.trees.J48",
+					"options" : "-C 0.25 -M 2"
+				},
+				"loadClassifierFileName" : "",
+				"name" : "J48",
+				"resetIncrementalClassifier" : false,
+				"updateIncrementalClassifier" : true
+			},
+			"connections" : {
+				"text" : [
+					"TextViewer32"
+				]
+			},
+			"coordinates" : "453,493"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.TextViewer",
+			"properties" : {
+				"name" : "TextViewer32"
+			},
+			"connections" : {
+			},
+			"coordinates" : "658,493"
+		}
+	]
+}
