@@ -1,5 +1,5 @@
 {
-	"flow_name" : "tttt",
+	"flow_name" : "part-1-pipeline",
 	"steps" : [
 		{
 			"class" : "weka.knowledgeflow.steps.Loader",
@@ -7,7 +7,7 @@
 				"loader" : {
 					"type" : "loader",
 					"class" : "weka.core.converters.CSVLoader",
-					"filePath" : "/home/karu/Documents/COMP309/Assignment 2/estimated-fish-and-invertebrate-bycatch-in-deep-water-fisher.csv",
+					"filePath" : "/home/karu/Documents/COMP309/Assignment 2/part1/Fishing bycatch/estimated-bycatch-refined.csv",
 					"useRelativePath" : false,
 					"options" : "-format \"yyyy-MM-dd\\'T\\'HH:mm:ss\" -M ? -B 100 -E \"\\\",\\'\" -F ,"
 				},
@@ -42,15 +42,6 @@
 			"coordinates" : "288,334"
 		},
 		{
-			"class" : "weka.knowledgeflow.steps.TextViewer",
-			"properties" : {
-				"name" : "TextViewer"
-			},
-			"connections" : {
-			},
-			"coordinates" : "656,202"
-		},
-		{
 			"class" : "weka.knowledgeflow.steps.Clusterer",
 			"properties" : {
 				"clusterer" : {
@@ -66,7 +57,7 @@
 					"ClustererPerformanceEvaluator"
 				]
 			},
-			"coordinates" : "382,201"
+			"coordinates" : "451,201"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.ClustererPerformanceEvaluator",
@@ -75,10 +66,10 @@
 			},
 			"connections" : {
 				"text" : [
-					"TextViewer"
+					"TextViewer2"
 				]
 			},
-			"coordinates" : "498,202"
+			"coordinates" : "593,201"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.Clusterer",
@@ -96,7 +87,7 @@
 					"ClustererPerformanceEvaluator2"
 				]
 			},
-			"coordinates" : "360,48"
+			"coordinates" : "449,49"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.ClustererPerformanceEvaluator",
@@ -108,7 +99,7 @@
 					"TextViewer2"
 				]
 			},
-			"coordinates" : "501,48"
+			"coordinates" : "586,48"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.TextViewer",
@@ -117,16 +108,7 @@
 			},
 			"connections" : {
 			},
-			"coordinates" : "648,48"
-		},
-		{
-			"class" : "weka.knowledgeflow.steps.TextViewer",
-			"properties" : {
-				"name" : "TextViewer3"
-			},
-			"connections" : {
-			},
-			"coordinates" : "651,334"
+			"coordinates" : "979,242"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.DataVisualizer",
@@ -141,7 +123,7 @@
 			},
 			"connections" : {
 			},
-			"coordinates" : "127,460"
+			"coordinates" : "108,471"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.ClassAssigner",
@@ -151,10 +133,11 @@
 			},
 			"connections" : {
 				"dataSet" : [
-					"CrossValidationFoldMaker"
+					"DataVisualizer",
+					"Resample"
 				]
 			},
-			"coordinates" : "108,336"
+			"coordinates" : "108,334"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.Classifier",
@@ -170,8 +153,8 @@
 				"updateIncrementalClassifier" : true
 			},
 			"connections" : {
-				"text" : [
-					"TextViewer3"
+				"batchClassifier" : [
+					"ClassifierPerformanceEvaluator"
 				]
 			},
 			"coordinates" : "450,334"
@@ -194,7 +177,7 @@
 					"SimpleKMeans"
 				]
 			},
-			"coordinates" : "258,128"
+			"coordinates" : "286,127"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.Classifier",
@@ -210,20 +193,90 @@
 				"updateIncrementalClassifier" : true
 			},
 			"connections" : {
-				"text" : [
-					"TextViewer32"
+				"batchClassifier" : [
+					"ClassifierPerformanceEvaluator2"
+				],
+				"graph" : [
+					"GraphViewer"
 				]
 			},
 			"coordinates" : "453,493"
 		},
 		{
-			"class" : "weka.knowledgeflow.steps.TextViewer",
+			"class" : "weka.knowledgeflow.steps.ClassifierPerformanceEvaluator",
 			"properties" : {
-				"name" : "TextViewer32"
+				"costMatrixString" : "",
+				"errorPlotPointSizeProportionalToMargin" : false,
+				"evaluateWithRespectToCosts" : false,
+				"evaluationMetricsToOutput" : "Correct,Incorrect,Kappa,Total cost,Average cost,KB relative,KB information,Correlation,Complexity 0,Complexity scheme,Complexity improvement,MAE,RMSE,RAE,RRSE,TP rate,FP rate,Precision,Recall,F-measure,MCC,ROC area,PRC area",
+				"name" : "ClassifierPerformanceEvaluator"
+			},
+			"connections" : {
+				"text" : [
+					"TextViewer2"
+				]
+			},
+			"coordinates" : "595,334"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.ClassifierPerformanceEvaluator",
+			"properties" : {
+				"costMatrixString" : "",
+				"errorPlotPointSizeProportionalToMargin" : false,
+				"evaluateWithRespectToCosts" : false,
+				"evaluationMetricsToOutput" : "Correct,Incorrect,Kappa,Total cost,Average cost,KB relative,KB information,Correlation,Complexity 0,Complexity scheme,Complexity improvement,MAE,RMSE,RAE,RRSE,TP rate,FP rate,Precision,Recall,F-measure,MCC,ROC area,PRC area",
+				"name" : "ClassifierPerformanceEvaluator2"
+			},
+			"connections" : {
+				"visualizableError" : [
+					"ModelPerformanceChart"
+				],
+				"text" : [
+					"TextViewer2"
+				]
+			},
+			"coordinates" : "597,493"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.ModelPerformanceChart",
+			"properties" : {
+				"name" : "ModelPerformanceChart",
+				"offscreenAdditionalOpts" : "",
+				"offscreenHeight" : "400",
+				"offscreenRendererName" : "Weka Chart Renderer",
+				"offscreenWidth" : "500",
+				"offscreenXAxis" : "",
+				"offscreenYAxis" : ""
 			},
 			"connections" : {
 			},
-			"coordinates" : "658,493"
+			"coordinates" : "985,388"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.GraphViewer",
+			"properties" : {
+				"name" : "GraphViewer"
+			},
+			"connections" : {
+			},
+			"coordinates" : "453,627"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Filter",
+			"properties" : {
+				"filter" : {
+					"type" : "optionHandler",
+					"class" : "weka.filters.unsupervised.instance.Resample",
+					"options" : "-S 1 -Z 100.0"
+				},
+				"name" : "Resample"
+			},
+			"connections" : {
+				"dataSet" : [
+					"CrossValidationFoldMaker"
+				]
+			},
+			"coordinates" : "201,334"
 		}
 	]
 }
