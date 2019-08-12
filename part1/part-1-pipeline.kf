@@ -32,11 +32,13 @@
 			"connections" : {
 				"trainingSet" : [
 					"MultilayerPerceptron",
-					"J48"
+					"J48",
+					"SimpleLogistic"
 				],
 				"testSet" : [
 					"MultilayerPerceptron",
-					"J48"
+					"J48",
+					"SimpleLogistic"
 				]
 			},
 			"coordinates" : "288,334"
@@ -200,7 +202,7 @@
 					"GraphViewer"
 				]
 			},
-			"coordinates" : "453,493"
+			"coordinates" : "447,422"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.ClassifierPerformanceEvaluator",
@@ -235,7 +237,7 @@
 					"TextViewer2"
 				]
 			},
-			"coordinates" : "597,493"
+			"coordinates" : "599,422"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.ModelPerformanceChart",
@@ -250,7 +252,7 @@
 			},
 			"connections" : {
 			},
-			"coordinates" : "977,369"
+			"coordinates" : "730,422"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.GraphViewer",
@@ -259,7 +261,7 @@
 			},
 			"connections" : {
 			},
-			"coordinates" : "453,627"
+			"coordinates" : "601,521"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.Filter",
@@ -277,6 +279,42 @@
 				]
 			},
 			"coordinates" : "201,334"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Classifier",
+			"properties" : {
+				"classifier" : {
+					"type" : "optionHandler",
+					"class" : "weka.classifiers.functions.SimpleLogistic",
+					"options" : "-I 0 -M 500 -H 50 -W 0.0"
+				},
+				"loadClassifierFileName" : "",
+				"name" : "SimpleLogistic",
+				"resetIncrementalClassifier" : false,
+				"updateIncrementalClassifier" : true
+			},
+			"connections" : {
+				"batchClassifier" : [
+					"ClassifierPerformanceEvaluator22"
+				]
+			},
+			"coordinates" : "457,610"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.ClassifierPerformanceEvaluator",
+			"properties" : {
+				"costMatrixString" : "",
+				"errorPlotPointSizeProportionalToMargin" : false,
+				"evaluateWithRespectToCosts" : false,
+				"evaluationMetricsToOutput" : "Correct,Incorrect,Kappa,Total cost,Average cost,KB relative,KB information,Correlation,Complexity 0,Complexity scheme,Complexity improvement,MAE,RMSE,RAE,RRSE,TP rate,FP rate,Precision,Recall,F-measure,MCC,ROC area,PRC area",
+				"name" : "ClassifierPerformanceEvaluator22"
+			},
+			"connections" : {
+				"text" : [
+					"TextViewer2"
+				]
+			},
+			"coordinates" : "600,610"
 		}
 	]
 }
